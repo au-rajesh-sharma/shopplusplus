@@ -49,6 +49,7 @@ const UserEditScreen = () => {
       toast.success('User updated successfully')
       refetch()
       navigate('/admin/userlist')
+      window.location.reload()
       //navigate(-1)//navigate to previous screen (product page)
     }
   };
