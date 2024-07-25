@@ -46,10 +46,12 @@ const UserEditScreen = () => {
     const result = await updateUser({ userId, name, email, isAdmin })
     if(result.error) {toast.error(result.error)}
     else {
-      toast.success('User updated successfully')
+      //toast.success('User updated successfully')
+      window.confirm('User updated')
       refetch()
       navigate('/admin/userlist')
       window.location.reload()
+      
       //navigate(-1)//navigate to previous screen (product page)
     }
   };
