@@ -26,7 +26,7 @@ Normal users can browse products, search products, add to cart, update/delete fr
 
 Admin users can login, and -
 view/add/edit and update: Products (including upload of image files)
-view/edit and update/delete: users (admin users can't be deleted)
+view/edit and update users (users can't be deleted)
 view order details, and mark as paid, mark as delivered
 
 
@@ -277,8 +277,8 @@ logs out user and clears the cart
 
 #### [Users (screen):]
 
-        View, edit/update, delete users in users table.
-        (admin users can't be deleted. Password can't be edited).
+        View, edit/update users in users table.
+        (users can't be deleted. Password can't be edited).
 
 #### Orders (screen):
 
