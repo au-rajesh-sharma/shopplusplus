@@ -26,8 +26,16 @@ Normal users can browse products, search products, add to cart, update/delete fr
 
 Admin users can login, and -
 view/add/edit/update/delete Products (including upload of image files); 
-view/edit and update users (users can't be deleted, password can't be updated); 
+view/edit/update/delete users (admin users can't be deleted, password can't be updated); 
 view order details, and mark as paid, mark as delivered.
+
+*** for testing a user delete by admin, first register a new user (this user will get logged in), then log out this user, then login as admin, then delete this new user. 
+
+if delete an existing user, the app may crash because the user being deleted may be referenced in existing order(s). ***
+
+*** for testing a product delete by admin, first create a new product (by default, the product name will be 'sample product'). Then delete this new product ('sample product'). 
+
+if delete an existing product, the app may crash because a product being deleted may be  referenced in existing order(s). ***
 
 
 ## [Important login / PayPal details for running / testing the app]
