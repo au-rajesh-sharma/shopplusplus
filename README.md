@@ -25,9 +25,9 @@ The application implements functionality for: normal users (customer) and admin 
 Normal users can browse products, search products, add to cart, update/delete from cart, login, place order, pay for their orders by PayPal (mock payment through PayPal sandbox url), view their profile/orders, update profile, and more.
 
 Admin users can login, and -
-view/add/edit and update: Products (including upload of image files)
-view/edit and update users (users can't be deleted)
-view order details, and mark as paid, mark as delivered
+view/add/edit/update/delete Products (including upload of image files); 
+view/edit and update users (users can't be deleted, password can't be updated); 
+view order details, and mark as paid, mark as delivered.
 
 
 ## [Important login / PayPal details for running / testing the app]
