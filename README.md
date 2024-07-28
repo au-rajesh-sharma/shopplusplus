@@ -29,13 +29,17 @@ view/add/edit/update/delete Products (including upload of image files);
 view/edit/update/delete users (admin users can't be deleted, password can't be updated); 
 view order details, and mark as paid, mark as delivered.
 
+## Important Things to note and follow:
+
 *** for testing a user delete by admin, first register a new user (this user will get logged in), then log out this user, then login as admin, then delete this new user. 
 
 if delete an existing user, the app may crash because the user being deleted may be referenced in existing order(s). ***
 
-*** for testing a product delete by admin, first create a new product (by default, the product name will be 'sample product'). Then delete this new product ('sample product'). 
+*** for testing a product delete by admin, first create a new product (by default, the product name will be 'sample name'). Then delete this new product ('sample name'). 
 
 if delete an existing product, the app may crash because a product being deleted may be  referenced in existing order(s). ***
+
+*** if upon app start / re-start, any user is already logged in (from previous log in), to be safe, please log out and log in again. A previous logged in user from local storage cache may crash the app **
 
 
 ## [Important login / PayPal details for running / testing the app]
