@@ -10,11 +10,11 @@ https://shopplusplus-bl0x.onrender.com/
 
 https://github.com/au-rajesh-sharma/shopplusplus
 
-## [Project description:]
 
 ## [README.md Link]
 
 https://github.com/au-rajesh-sharma/shopplusplus/blob/main/README.md
+
 
 ## Project Description:
 
