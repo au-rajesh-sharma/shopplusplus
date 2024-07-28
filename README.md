@@ -12,6 +12,12 @@ https://github.com/au-rajesh-sharma/shopplusplus
 
 ## [Project description:]
 
+## [README.md Link]
+
+https://github.com/au-rajesh-sharma/shopplusplus/blob/main/README.md
+
+## Project Description:
+
 The project application implements an online e-commerce store (with electronics products). The application is developped using MERN Stack - "react js" in frontend, "node express" in backend and "MongoDB Atlas cloud - mongoose" as database. The application is responsive and accomodates small, medium and large screens.
 
 The application implements functionality for: normal users (customer) and admin users.
@@ -24,8 +30,7 @@ view/edit and update/delete: users (admin users can't be deleted)
 view order details, and mark as paid, mark as delivered
 
 
-
-## [Important login / PayPal details for the app]
+## [Important login / PayPal details for running / testing the app]
 
 ### [Normal User (customer) login / register:]
 
@@ -33,7 +38,7 @@ existing user (customer) login:
 email: user1@email.com
 Password: 123456
 
-or, register as new user with name, email, password
+or, register as new user with name, email, password (mock info)
 
 ### [Admin User Login:]
 
@@ -45,7 +50,7 @@ Password: 123456
 
 ### [PayPal (sandbox) account Login to make order Payment:]
 
-on pay order screen, after clicking 'PayPal' button:
+on pay order screen, after clicking yellow 'PayPal' button:
 
 email: rsharma_bunty@yahoo.com
 Password: 12345678
@@ -53,19 +58,21 @@ Password: 12345678
 **_ Its a mock payment. No actual money will be paid.
 Its a PayPal sandbox testing account _**
 
-### [PayPal sandbox debit/credit card payment:]
+### [sandbox debit/credit card payment:]
 
-    to make payment by card - PayPal sandbox testing :
+    to make payment by card - button below PayPal yellow button
+    (** again PayPal sandbox testing :)
         Name: rajesh sharma
         Phone: 0364608639
         Country: AU
         Card Number: 4239539035788480
         Expiry: 05/2029
         CVC Code: Any 3 digits
+    
+**_ Its a mock payment. No actual money will be paid.
+Its a PayPal sandbox testing account _**
 
-## [Frontend]
-
-### [Frontend features]
+## [Frontend features]
 
     Redux state management (useState, useDispatch, useEffect), store, slices, reducers
 
@@ -117,7 +124,7 @@ Its a PayPal sandbox testing account _**
 
     And more, I can't remember all at this point
 
-### [Frontend Technologies:]
+## [Frontend Technologies:]
 
     react v18.3.1:
         - React, useState, useEffect
@@ -161,81 +168,152 @@ Its a PayPal sandbox testing account _**
 
     react-scripts v5.0.1
 
-### [Frontend App screens / work flow]
+## [Backend features]
 
-#### [Screen Header - main and all other Screen]
+    bcrypt password encryption implemented as pre save trigger in User model
+
+    http only cookie for user login token generation and validation
+
+    user email and encrypted password matching
+
+    PayPal sandbox integration for making order payment and also payment verification
+
+    checks on private routes for admin, protected routes for logged in users, implemented in authMiddleware
+
+    controller API's methods serving http (POST, PUT, GET, DELETE) requests on routes
+
+    created static path for product image file upload implemented in server.js
+
+    And more, I can't remember all at this point
+
+
+## [Backend Technologies:]
+
+    Node.js v20.10.0:
+
+    express v4.19.2:
+    express
+
+    cookie-parser v1.4.6:
+    cookieParser
+
+    jsonwebtoken v9.0.2:
+    jwt
+
+    multer v1.4.5-lts.1:
+    multer
+
+    mongoose v8.4.0
+    isValidObject
+
+    bcryptjs v2.4.3
+
+    path:
+    path
+
+
+## [MongoDB Atlas (cloud) Database (Models, function, triggers)]
+
+    shopplusplus database with products, users and orders collections
+
+    products having nested array of documents for reviews
+
+    orders having reference to user and contains array of cart items. each cart item references product
+
+** user model has function to match password for user login:
+
+    // Match user entered password to hashed password in database
+    userSchema.methods.matchPassword = async function (inputPassword) {
+    return await bcrypt.compare(inputPassword, this.password)
+    }
+
+** user model has pre save (trigger) to generate and save hashed encrypted password:
+
+    userSchema.pre('save', async function (next) {
+    //if password field is not involved, don't do anything
+    if(!this.isModified('password')) { next() }
+    else {
+    //otherwise, generate hashed encrypted password and save in the user document
+    const salt = await bcrypt.genSalt(10)
+    this.password = await bcrypt.hash(this.password, salt)
+    }
+    })
+
+## [Frontend App screens / work flow]
+
+### [Screen Header - main and all other Screen]
 
 Brand, Nav with Search, Cart, and Sign in or logged in user dropdown menu.
 
-#### [Screen Footer - main and all other Screen]
+### [Screen Footer - main and all other Screen]
 
 name, copyright, 2024
 
-#### [Home Screen Body:]
+### [Home Screen Body:]
 
 product cards with pagination, to click and go to "product detail screen".
 
-#### [Home screen Nav - Search component and search results screen:]
+### [Home screen Nav - Search component and search results screen:]
 
 user can enter a complete/incomplete product name. It will search for all products containing search string, and display search result.
 
-#### [Home screen Nav - logged in user dropdown menu:]
+### [Home screen Nav - logged in user dropdown menu:]
 
-##### [Profile (user profile screen):]
+#### [Profile (user profile screen):]
 
         view/update user profile.
         view user orders (table) with 'details' button to go to 'order details screen'.
 
-##### [Logout:]
+#### [Logout:]
 
 logs out user and clears the cart
 
-#### [Home screen Nav - logged in admin user "Admin Options" dropdown menu:]
+### [Home screen Nav - logged in admin user "Admin Options" dropdown menu:]
 
-##### [Products (screen):]
+#### [Products (screen):]
 
         Create new Product (will add one document with sample data), which has to be be edited later.
         View, edit/update, delete products in products table.
 
-##### [Users (screen):]
+#### [Users (screen):]
 
         View, edit/update, delete users in users table.
         (admin users can't be deleted. Password can't be edited).
 
-##### Orders (screen):
+#### Orders (screen):
 
         View Orders in orders table. go to order details by clikcing "details" button.
         On order details page, admin user will be able to "Mark as Paid" if order not paid, and "Mark as delivered" if order has been delivered.
 
-#### [Further Screens (workflow):]
+### [Further Screens (workflow):]
 
-##### [Product details screen]
+#### [Product details screen]
 
         Here, user can chose quantity, add to cart, write product review, or go back. Max qty to chose is upto qty available in stock.
 
-##### [cart screen:]
+#### [cart screen:]
 
         Here, user can change qty, remove cart item(s), proceed to checkout, or go back to 'product details screen'.
 
-##### [sign in screen]
+#### [sign in screen]
 
         if user is not signed in, user is asked to sign in here.
 
-##### [Shipping screen:]
+#### [Shipping screen:]
 
         Here, user has to provide shipping address.
 
-##### [Payment method screen:]
+#### [Payment method screen:]
 
         Here, user can chose 'Payment Method'. By defualt, only 'PayPal' as payment method is shown and selected. It can't be changed.
 
-##### [Place order screen:]
+#### [Place order screen:]
 
         Here, order details are shown. User can place order (button).
 
-##### [Order (:id) details screen:]
+#### [Order (:id) details screen:]
 
-###### [for customer (normal user):]
+##### [for customer (normal user):]
 
             Here, customer (normal user) can see name, email, shipping address, payment status (as not paid), delivery status (as not delivered). Customer can chose to pay by 'PayPal' or 'Dedit/Credit card'.
 
@@ -254,11 +332,11 @@ logs out user and clears the cart
 
             After payment, payment status will show as paid, and payment info
 
-###### [for Admin user:]
+##### [for Admin user:]
 
             Here, on order details screen, admin user can mark unpaid order as paid, and then mark delivered orders as 'delivered'.
 
-### [Frontend Routes]
+## [Frontend Routes]
 
 Frontend routes paths with elements to render:
 
@@ -297,7 +375,7 @@ Frontend routes paths with elements to render:
     </Route>
     </Route>
 
-### [Frontend Providers for rendering the app:]
+## [Frontend Providers for rendering the app:]
 
 > <React.StrictMode>
 
@@ -313,16 +391,16 @@ Frontend routes paths with elements to render:
 
 > </React.StrictMode>
 
-### [Frontend (JSX) Components:]
+## [Frontend (JSX) Components:]
 
     Admin Routes, Private Routes, Checkout Steps, Form Container, Header, Footer, Loader, Message, Paginate, Product Card, Product Carousel, Rating, Search Box
 
-### [Frontend utils:]
+## [Frontend utils:]
 
     Cart Utils:
     for calculating cart total, tax and delivery
 
-### [Frontend Constants:]
+## [Frontend Constants:]
 
     BASE_URL = ''
     PRODUCTS_URL = '/api/products'
@@ -331,51 +409,8 @@ Frontend routes paths with elements to render:
     PAYPAL_URL = '/api/config/paypal'
     UPLOAD_URL = '/api/upload'
 
-## [Backend]
 
-### [Backend features]
-
-    bcrypt password encryption implemented as pre save trigger in User model
-
-    http only cookie for user login token generation and validation
-
-    user email and encrypted password matching
-
-    PayPal sandbox integration for making order payment and also payment verification
-
-    checks on private routes for admin, protected routes for logged in users, implemented in authMiddleware
-
-    controller API's methods serving http (POST, PUT, GET, DELETE) requests on routes
-
-    created static path for product image file upload implemented in server.js
-
-    And more, I can't remember all at this point
-
-### [Backend Technologies:]
-
-    Node.js v20.10.0:
-
-    express v4.19.2:
-    express
-
-    cookie-parser v1.4.6:
-    cookieParser
-
-    jsonwebtoken v9.0.2:
-    jwt
-
-    multer v1.4.5-lts.1:
-    multer
-
-    mongoose v8.4.0
-    isValidObject
-
-    bcryptjs v2.4.3
-
-    path:
-    path
-
-### [backend utils:]
+## [Backend utils:]
 
 calcPrices:
 for re-calculating order total, tax, shipping etc. in backend
@@ -388,7 +423,7 @@ checkIfNewTransaction: query PayPal to confirm it’s a new payment transaction
 generateToken :
 to generate jwt token using jwt secret, store it as http only cookie with same site as strict, and send back in response
 
-### [Backend Middleware functions:]
+## [Backend Middleware functions:]
 
 asyncHandler
 
@@ -399,9 +434,9 @@ checkObjectId
 
 errorMiddleware
 
-### [Backend Routes, http requests and serving api methods:]
+## [Backend Routes, http requests and serving api methods:]
 
-#### [Order Routes:]
+### [Order Routes:]
 
 // all routes connected to '/api/orders'
 router.route('/').post(protect, addOrderItems)
@@ -411,7 +446,7 @@ router.route('/:id').get(protect, getOrderById)
 router.route('/:id/pay').put(protect, updateOrderToPaid)
 router.route('/:id/deliver').put(protect, admin, updateOrderToDelivered)
 
-#### [Product Routes:]
+### [Product Routes:]
 
 //bring in protect and admin middleware
 import {protect, admin} from '../middleware/authMiddleware.js'
@@ -426,7 +461,7 @@ router.route('/:id').get(checkObjectId, getProductById)
 .delete(protect, admin, checkObjectId, deleteProduct)
 router.route('/:id/reviews').post(protect, checkObjectId, createProductReview)
 
-#### [User Routes]
+### [User Routes]
 
 // all routes connected to '/api/users'
 router.route('/').post(registerUser)
@@ -444,20 +479,20 @@ router.route('/:id').delete(protect, admin, deleteUser)
 .get(protect, admin, getUserByID)
 .put(protect, admin, updateUser)
 
-#### [Product image file upload route:]
+### [Product image file upload route:]
 
 //create the route. upload is handled by the upload() middleware
 router.post('/', (req, res) => {
 uploadSingleImage(req, res, function (err) {
 
-#### [using these routes in server.js:]
+### [using these routes in server.js:]
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/upload', uploadRoutes)
 
-### [.Env constants supplied to deployment:]
+## [.Env constants supplied to deployment:]
 
     MONGO_URI=mongodb+srv://aurajeshsharma:woPquB6mXTZVZR39@cluster0.h7slvrg.mongodb.net/shopplusplus
 
@@ -473,7 +508,7 @@ app.use('/api/upload', uploadRoutes)
 
     PAYPAL_API_URL=https://api-m.sandbox.paypal.com
 
-### [scripts:]
+## [scripts:]
 
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
@@ -481,40 +516,12 @@ app.use('/api/upload', uploadRoutes)
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 
-### [MongoDB Atlas (cloud) Database (Models, function, triggers)]
 
-    shopplusplus database with products, users and orders collections
-
-    products having nested array of documents for reviews
-
-    orders having reference to user and contains array of cart items. each cart item references product
-
-user model has function to match password for user login:
-
-    // Match user entered password to hashed password in database
-    userSchema.methods.matchPassword = async function (inputPassword) {
-    return await bcrypt.compare(inputPassword, this.password)
-    }
-
-user model has pre save (trigger) to generate and save hashed encrypted password:
-
-    userSchema.pre('save', async function (next) {
-    //if password field is not involved, don't do anything
-    if(!this.isModified('password')) { next() }
-    else {
-    //otherwise, generate hashed encrypted password and save in the user document
-    const salt = await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)
-    }
-    })
-
-## [Bug reports and Feature suggestions]
-
-### [No Bugs found]
+## [Bug reports - no known bugs]
 
 There are no bugs detected or known in the features/functionality implemented.
 
-### [Feature suggestions]
+## [Further Feature suggestions]
 
 The following features can (will) be added:
 
