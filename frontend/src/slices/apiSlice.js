@@ -1,7 +1,7 @@
 //this apiSlice is the parent to all other api slices
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import { BASE_URL } from '../constants'
-//import Product from '../components/ProductCard'
+import Product from '../components/ProductCard'
 
 const baseQuery = fetchBaseQuery({baseUrl: BASE_URL})
 
