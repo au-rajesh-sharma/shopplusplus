@@ -9,7 +9,7 @@ const OrderListScreen = () => {
     
   //get order details by calling query 
   const {data: orders, isLoading, error} = useGetOrdersQuery()
-  
+    
   return (
             <>
             <h2>Orders</h2>
@@ -28,6 +28,7 @@ const OrderListScreen = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            
                             {orders.map((order) => (
                                 <tr key={order._id}>
                                     <td>{order._id}</td>
