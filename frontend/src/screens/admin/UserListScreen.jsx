@@ -33,7 +33,10 @@ const deleteHandler = async (id) => {
             {loadingDelete && <Loader />
             }
             {isLoading ? <Loader /> : 
-              error ? <Message variant='danger'>{error}</Message> : (
+              error ? <Message variant='danger'>
+                {/* {error} */}
+                Please logout, and login again to view users
+                </Message> : (
                 <Table striped hover responsive className='table-sm'>
                         <thead>
                             <tr>

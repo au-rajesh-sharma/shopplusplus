@@ -33,17 +33,31 @@ const HomeScreen = () => {
     const heading = keyword ? `${productsFound} Products found` : 'Latest Products'
     
 
+
   return (
     
-     
     <>  
-      {!keyword ? (
-          <Row>
-            <Col>
-              <h2>Top Rated Products</h2>
-            </Col>
-          <ProductCarousel />
+      {!keyword && !isLoading? (
+          <Row >
+            <h3>Top Rated Products</h3>
+            <Row >
+              <Col  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+                >
+                <ProductCarousel />
+              </Col>
+            </Row>
+            
+            {/* display empty rows for spacing down */}
+            <Row> <p></p> </Row>
+            <Row> <p></p> </Row>
+            <Row> <p></p> </Row>
+            <Row> <p></p> </Row>
+
           </Row>
+          
         ) : (
         <Row>  
           <Row>
@@ -79,7 +93,7 @@ const HomeScreen = () => {
       ) : ( //rendering of actual poroducts
         <>
           <Meta />
-          <h2>{heading}</h2>
+          <h3>{heading}</h3>
           <Row>
               {data.products.map((p) => (//map on products in data
                   // responsive: small screen, take 12 columns, medium - 6 col, large - 4, xl - 3  

@@ -7,8 +7,8 @@ main {
   top: 0;
   opacity: 0.9;
   z-index: 10;
-}
-
+} 
+ 
 /* on user scroll, header sticky class opacity */
 /* .header-sticky {
   position: sticky;
@@ -16,14 +16,15 @@ main {
   z-index: 10;
   opacity: 0.8;
 } */
+
 /* style to reduce carousel slider */
 .carousel {
-  width: 70%;
+   width: 70%;
 }
 
 h3 {
   text-align: center;
-}
+} 
 
 .rating span {
   margin: 0.1rem;
@@ -44,7 +45,7 @@ h3 {
   height: 2.5em; /* Set a fixed height */
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;   /* Prevent wrapping */
   color: black;
   font-style: italic;
 }
@@ -62,7 +63,8 @@ table th {
   font-size: 24px;
   background: #f4f4f4;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; 
+ 
 }
 
 .review button {
@@ -76,15 +78,17 @@ table th {
   right: 0;
   bottom: 0;
   background: crimson;
+  // background: orange;
   /* background: sandybrown; */
   /* background: deeppink; */
   /* background: rgba(0, 0, 0, 0.236); */
+  // background: fuchsia; 
   /* background: RoyalBlue; */
   /* background: slateblue; */
 }
 
 .icons {
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
 }
@@ -105,7 +109,7 @@ table th {
   outline: black;
   /* background-color: rgba(0, 0, 0, 0.496); */
   /* background-color: rgba(220, 20, 60, 1); */
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 1);
   background-size: 100%, 100%;
   border-radius: 50%;
   border: 1px solid black;
@@ -113,43 +117,55 @@ table th {
 
 @media (max-width: 1000px) {
   /* centering header  */
-  .header {
-    position: relative;
-    width: 80%;
-    justify-self: center;
-  }
+  .header  {
+      position: relative;
+      width: 80%;
+      justify-self: center;
+    }
+
+
+
   .product-card {
     display: flex;
-    justify-self: center;
+    justify-self: center; 
     width: 350px;
     height: 420px;
   }
+
   .product-details {
     width: 80%;
   }
+
   .paginate {
-    justify-self: center;
+    justify-self: center; 
   }
+
   body {
-    font-size: xx-small;
-    width: 70%;
-    justify-self: center;
+  font-size:xx-small;
+  width: 70%;
+  justify-self: center; 
   }
+
   /* style to reduce carousel slider */
   .carousel {
     width: 80%;
   }
+
   .carousel-control-prev-icon, .carousel-control-next-icon {
     height: 20px;
     width: 20px;
   }
+
   h1 {
     font-size: larger;
   }
+
   h2 {
     font-size: large;
   }
+
   h3 {
     font-size: medium;
   }
+
 }

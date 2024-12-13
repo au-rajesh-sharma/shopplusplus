@@ -82,7 +82,9 @@ const router = createBrowserRouter(
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+ 
+  root.render(
   <React.StrictMode>
     <HelmetProvider>
     {/* we wrap router provider with Provider {store}
@@ -94,6 +96,7 @@ root.render(
     </Provider>
     </HelmetProvider>
   </React.StrictMode>
+  
 );
 
 reportWebVitals();

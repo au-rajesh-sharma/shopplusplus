@@ -4,6 +4,7 @@ import {FaTrash} from 'react-icons/fa'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/Message'
 import {addToCart, removeFromCart} from '../slices/cartSlice'
+import { toast } from 'react-toastify';
 
 const CartScreen = () => {
     const navigate = useNavigate()
@@ -25,7 +26,9 @@ const CartScreen = () => {
      //checkoutHandler when 'proceed to checkout' is clicked 
      const checkoutHandler = () => {
         //if user not logged in, take user to login, otherwise, go to shipping screen
+        toast.success('Please sign in to place your order')
         navigate('/login?redirect=/shipping')
+        
     }
 
     //back button handler
@@ -57,7 +60,7 @@ const CartScreen = () => {
                                     <Image src={item.image} alt={item.name} fluid rounded />
                                 </Col>
                                 <Col md={3}>
-                                    <Link to={`/product/${item._id}`}>{item.name}</Link> 
+                                    <Link class='text-bold' to={`/product/${item._id}`}>{item.name}</Link> 
                                 </Col>
                                 <Col md={2}>
                                     <Form.Control as='select' //drop down select
@@ -74,7 +77,7 @@ const CartScreen = () => {
                                         ))}
                                     </Form.Control>
                                 </Col>
-                                <Col md={2}>${item.price}</Col>
+                                <Col md={2} >${item.price}</Col>
                                 <Col md={2}>
                                     <Button type='button' variant='light' 
                                         onClick={() => 

@@ -38,18 +38,41 @@ const Header = () => {
             err.message(err)    
         }
     }
+  
+    //js script to make navbar dark when user scroll vertical
+    function userScroll() {
+        //const header = document.querySelector('.header');
     
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            // Header.classList.add('bg-dark');
+            this.classList.add('header-sticky');
+        } else {
+            // Header.classList.remove('bg-dark');
+            this.classList.remove('header-sticky');
+        }
+        });
+    }
+  
+ 
+    //invoke above function when dom content is loaded
+    document.addEventListener('DOMContentLoaded', userScroll);
+
+    // document.addEventListener('DOMContentLoaded');
+  
+
     //find items in cart, based on qty ordered for each item
     const itemsCount = cartItems.reduce((acc, item) => acc+item.qty,0)
     return (
-        <header> 
+        <header class="header"> 
             <Navbar bg="dark" expand='lg' collapseOnSelect> 
+         
             {/* turn to hamburger when screen size gets smaller, expand='md' */}
                 <Container>
                     <LinkContainer to='/'>
                         <Navbar.Brand to='/' >
-                            <img src={logo} alt='Rajesh Online Store' />
-                            <p class = "navbar-text">Rajesh Online Store</p>
+                            <img src={logo} width="60" alt='Rajesh Online Store' />
+                            <p id="brandtext" class="text-bold">Rajesh Online Store</p>
                         </Navbar.Brand>
                     </LinkContainer>
 
@@ -61,7 +84,7 @@ const Header = () => {
                         </div>
 
                         <LinkContainer to='/cart'>
-                            <Nav.Link> <FaShoppingCart color='red' />Cart
+                            <Nav.Link id='cart' class="text-bold"> <FaShoppingCart color='black'/>Cart
                                 {//if cart has items, show a badge with count
                                 cartItems.length > 0  && (
                                 //show badge with count
@@ -78,7 +101,7 @@ const Header = () => {
                             {/* <pre>  </pre> */}
                             
                             
-                            {userInfo && (<FaUser color='red'/>)}
+                            {userInfo && (<FaUser color='black'/>)}
                             
                             {/* if user info exist, show user details and logout option, 
                             otherwise direct to login */}
@@ -86,7 +109,7 @@ const Header = () => {
                                 <>
                                 <NavDropdown title={userInfo.name} id='username' >
                                     <LinkContainer to='/profile'>
-                                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item >Profile</NavDropdown.Item>
                                     </LinkContainer>
                                     <NavDropdown.Item onClick={logoutHandler}>
                                         Logout
@@ -106,7 +129,7 @@ const Header = () => {
                             {/* if userInfo exists, and its admin user, show admin drop down */}
                             {userInfo && userInfo.isAdmin && (
                                                                 
-                                <NavDropdown title='Admin options' id='adminmenu' font='bold'>
+                                <NavDropdown title='Admin options' class="fw-bold" id='adminmenu'>
                                     <LinkContainer to='/admin/productlist'>
                                         <NavDropdown.Item>Products</NavDropdown.Item>
                                     </LinkContainer>

@@ -84,8 +84,8 @@ const [createReview, {isLoading: loadingProductReview}]
        Back
   </Link>
   <>
-
-  <Row>
+    
+  <Row className='product-details'>
       <Col md={5}>
           <Image src={product.image} alt={product.name} fluid />
       </Col>  
@@ -157,9 +157,11 @@ const [createReview, {isLoading: loadingProductReview}]
   </Row>
   
   {/* show reviews */}
-  <Row className='reviews'>
+  <Row className='product-details reviews'>
     <Col md={6}>
-        <h1>Reviews</h1>
+        <br></br>
+        <br></br>
+        <h3>Reviews</h3>
         {product.reviews.length === 0 
             && <Message>No Reviews</Message>}
             
@@ -176,7 +178,7 @@ const [createReview, {isLoading: loadingProductReview}]
 
            {/* area for writing a review */}
            <ListGroup.Item>
-                <h1>Write a Review</h1>
+                <h3>Write a Review</h3>
                 {loadingProductReview && <Loader />}
 
                 {/* if user is logged in */}

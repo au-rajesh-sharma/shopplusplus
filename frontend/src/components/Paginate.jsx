@@ -8,7 +8,7 @@ const Paginate = ({pages, page,
         isAdmin = false, keyword = ''}) => {
   return (
     pages > 1 && (
-        <Pagination>
+        <Pagination className="paginate">
             {/* array of pages (each page has products). x+1 is current page */}
             {[...Array(pages).keys()].map((x) => (
                 <LinkContainer key={x+1} 

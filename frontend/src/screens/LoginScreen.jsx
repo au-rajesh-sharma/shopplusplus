@@ -1,4 +1,5 @@
-import {useState, useEffect} from "react"
+// import {useState, useEffect} from "react"
+import {useState} from "react"
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import {useDispatch, useSelector} from 'react-redux'
@@ -26,10 +27,10 @@ const LoginScreen = () => {
   const sp = new URLSearchParams(search)//pass in search
   const redirect = sp.get('redirect') || '/'
 
-  useEffect(() => {
-    //if user is logged in, redirect to redirect
-    if(userInfo) { navigate(redirect)}
-  }, [userInfo, redirect, navigate])//pass in the 3 dependencies
+//   useEffect(() => {
+//     //if user is logged in, redirect to redirect
+//     if(userInfo) { navigate(redirect)}
+//   }, [userInfo, redirect, navigate])//pass in the 3 dependencies
  
   
   const submitHandler = async (e) => {

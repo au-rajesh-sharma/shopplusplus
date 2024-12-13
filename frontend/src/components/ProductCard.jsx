@@ -7,7 +7,7 @@ const Product = ({ product }) => {
     //const maxRating = 5 //highest possible (stars) rating  
   return (
     // my-3 margin y axis 3, p-3 padding 3 all around, rounded 
-    <Card className='my-3 p-3 rounded'>
+    <Card className='product-card my-3 p-3 rounded'>
         {/* use back tik below */}
         <Link to={`/product/${product._id}`}>
             <Card.Img src={product.image} variant='top' alt={product.name} />

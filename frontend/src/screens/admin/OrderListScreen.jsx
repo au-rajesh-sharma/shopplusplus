@@ -14,7 +14,10 @@ const OrderListScreen = () => {
             <>
             <h2>Orders</h2>
             {isLoading ? <Loader /> : 
-              error ? <Message variant='danger'>{error}</Message> : (
+              error ? <Message variant='danger'>
+                {/* {error} */}
+                Please logout and login again to view orders
+                </Message> : (
                 <Table striped hover responsive className='table-sm'>
                         <thead>
                             <tr>

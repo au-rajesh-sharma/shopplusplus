@@ -21,12 +21,16 @@ const ProfileScreen = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    // navigate('/login');
     
     //get auth part from the state
     const {userInfo} = useSelector((state) => state.auth)
+    
 
     useEffect(() => {
         //if user is logged in, redirect to redirect
+        // navigate('/login?redirect=/shipping')
         if(userInfo) { 
             setName(userInfo.name)
             setEmail(userInfo.email)
@@ -55,7 +59,8 @@ const ProfileScreen = () => {
                    toast.success('Profile updated successfully')
                    navigate('/')
                 } catch (err) {
-                   toast.error(err?.data?.message || err.error)  
+                //    toast.error(err?.data?.message || err.error)
+                toast.error('Please logout, and login again to update your profile')  
             }
         }
     }  
@@ -66,47 +71,47 @@ const ProfileScreen = () => {
         <Col md={3}>
             <h2>User Profile</h2>
             <Form onSubmit={submitHandler}>
-                <Form.Group controlId='name' className='my-2'>
+                <Form.Group controlId='name' className='my-2 fw-bold'>
                     <Form.Label>Name</Form.Label>
-                    <Form.Control
+                    <Form.Control className='bg-warning'
                         type='name'
-                        plkaceholder='Enter name'
+                        placeholder='Enter name'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='email' className='my-2'>
+                <Form.Group controlId='email' className='my-2 fw-bold'>
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control
+                    <Form.Control className='bg-warning'
                         type='email'
-                        plkaceholder='Enter email'
+                        placeholder='Enter email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
                     
-                <Form.Group controlId='password' className='my-2'>
+                <Form.Group controlId='password' className='my-2 fw-bold'>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control
+                    <Form.Control className='bg-warning'
                         type='password'
-                        plkaceholder='Enter password'
+                        placeholder='Enter password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='confirmPassword' className='my-2'>
+                <Form.Group controlId='confirmPassword' className='my-2 fw-bold'>
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
+                    <Form.Control className='bg-warning'
                         type='password'
-                        plkaceholder='Confirm password'
+                        placeholder='Confirm password'
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='primary' className='my-2'
+                <Button type='submit' variant='primary' className='my-2 fw-bold'
                     onClick={submitHandler}>
                     Update
                 </Button>
@@ -118,10 +123,11 @@ const ProfileScreen = () => {
         
         {/* for user orders history */}
         <Col md={9}>
-            <h5>My Orders</h5>
+            <h3>My Orders</h3>
             { isLoading ? (<Loader />) : error ? (            
                     <Message variant='danger'>
-                        {error?.data?.message || error.error}
+                        {/* {error?.data?.message || error.error} */}
+                        Please logout, and Login again to view your orders
                     </Message>
                 ) : (
                     <Table striped bordered hover responsive className='table-sm'>

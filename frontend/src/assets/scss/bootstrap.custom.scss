@@ -1,0 +1,60 @@
+
+// changing Color variables
+$primary: #fe6b2a;
+$secondary: orchid;
+$warning: lightgreen;
+$info: Coral;
+// $danger: chartreuse;
+$dark: OrangeRed;
+// $body-bg: Lavender; 
+$body-bg: Beige; 
+// $body-bg: FloralWhite; 
+// $body-bg: cornsilk;
+$body-color: #0c0d0e;
+
+// adding some spaces at top/bottom of navbar
+// in node_modules/bootstrap/scss/variables.scss,
+// search for navbar-padding-y
+// we find this: $navbar-padding-y: $spacer * .5 !default;
+// we will change this variable to 1rem instead of .5rem
+$navbar-padding-y: 1rem;
+
+// we will set varibale for text to be white
+$navbar-dark-color: #fff;
+$navbar-nav-link-fw: bold;
+// $navbar-nav-link-hover-color: $danger;
+
+
+//set navbar color light blue on hover
+// $navbar-dark-hover-color: $secondary;
+$navbar-dark-hover-color: chocolate;
+
+
+//change bootstrap variable for default button styles
+//look into node_modules/bootstrap/scss/variables.scss
+
+// button border radius
+$button-radius: 50px; //own variable. make all 50px
+$btn-border-radius: $button-radius;
+$btn-border-radius-sm: $button-radius;
+$btn-border-radius-lg: $button-radius;
+
+//button padding
+$button-padding-x: 30px;//own variable
+$button-padding-y: 10px;// own variable
+
+$btn-font-weight: bold;
+
+$btn-padding-x: $button-padding-x;
+$btn-padding-x-sm: $button-padding-x;
+$btn-padding-x-lg: $button-padding-x;
+
+$btn-padding-y: $button-padding-y;
+$btn-padding-y-sm: $button-padding-y;
+$btn-padding-y-lg: $button-padding-y;
+
+//border radius of hamburger
+$navbar-toggler-border-radius: 5px;
+
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss'; 
