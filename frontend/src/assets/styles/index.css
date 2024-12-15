@@ -113,11 +113,6 @@ table th {
 
 @media (max-width: 1000px) {
   /* centering header  */
-  .header {
-    position: relative;
-    width: 80%;
-    justify-self: center;
-  }
   .product-card {
     display: flex;
     justify-self: center;
@@ -151,5 +146,8 @@ table th {
   }
   h3 {
     font-size: medium;
+  }
+  table tr {
+    padding-left: 3px;
   }
 }
