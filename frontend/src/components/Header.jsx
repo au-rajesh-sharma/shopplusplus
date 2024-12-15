@@ -84,7 +84,7 @@ const Header = () => {
                         </div>
 
                         <LinkContainer to='/cart'>
-                            <Nav.Link id='cart' class="text-bold"> <FaShoppingCart color='black'/>Cart
+                            <Nav.Link id='cart' class="text-bold"> <FaShoppingCart color='indigo'/> Cart
                                 {//if cart has items, show a badge with count
                                 cartItems.length > 0  && (
                                 //show badge with count
@@ -101,13 +101,15 @@ const Header = () => {
                             {/* <pre>  </pre> */}
                             
                             
-                            {userInfo && (<FaUser />)}
+                            {/* {userInfo && (<FaUser color='blue'/>)} */}
                             
                             {/* if user info exist, show user details and logout option, 
                             otherwise direct to login */}
                             {userInfo ? (
                                 <>
+                                <FaUser color='indigo'/>
                                 <NavDropdown title={userInfo.name} id='username' >
+                                
                                     <LinkContainer to='/profile'>
                                         <NavDropdown.Item >Profile</NavDropdown.Item>
                                     </LinkContainer>

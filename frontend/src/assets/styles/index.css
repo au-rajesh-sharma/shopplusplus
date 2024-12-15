@@ -111,7 +111,7 @@ table th {
   border: 1px solid black;
 }
 
-@media (max-width: 762px) {
+@media (max-width: 1000px) {
   /* centering header  */
   .header {
     position: relative;
@@ -133,7 +133,6 @@ table th {
   }
   body {
     font-size: xx-small;
-    /* width: 100%; */
     justify-self: center;
   }
   /* style to reduce carousel slider */
@@ -145,12 +144,12 @@ table th {
     width: 20px;
   }
   h1 {
-    font-size: large;
+    font-size: larger;
   }
   h2 {
-    font-size: medium;
+    font-size: large;
   }
   h3 {
-    font-size: small;
+    font-size: medium;
   }
 }
