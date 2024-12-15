@@ -101,7 +101,7 @@ const Header = () => {
                             {/* <pre>  </pre> */}
                             
                             
-                            {userInfo && (<FaUser color='black'/>)}
+                            {userInfo && (<FaUser />)}
                             
                             {/* if user info exist, show user details and logout option, 
                             otherwise direct to login */}

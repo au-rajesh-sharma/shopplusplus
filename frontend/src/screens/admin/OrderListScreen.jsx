@@ -16,7 +16,7 @@ const OrderListScreen = () => {
             {isLoading ? <Loader /> : 
               error ? <Message variant='danger'>
                 {/* {error} */}
-                Please logout and login again to view orders
+                Please logout and Sign in again to view orders
                 </Message> : (
                 <Table striped hover responsive className='table-sm'>
                         <thead>

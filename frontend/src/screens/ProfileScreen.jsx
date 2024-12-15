@@ -60,7 +60,7 @@ const ProfileScreen = () => {
                    navigate('/')
                 } catch (err) {
                 //    toast.error(err?.data?.message || err.error)
-                toast.error('Please logout, and login again to update your profile')  
+                toast.error('Please logout, and sign in again to update your profile')  
             }
         }
     }  
@@ -127,7 +127,7 @@ const ProfileScreen = () => {
             { isLoading ? (<Loader />) : error ? (            
                     <Message variant='danger'>
                         {/* {error?.data?.message || error.error} */}
-                        Please logout, and Login again to view your orders
+                        Please logout, and Sign in again to view your orders
                     </Message>
                 ) : (
                     <Table striped bordered hover responsive className='table-sm'>

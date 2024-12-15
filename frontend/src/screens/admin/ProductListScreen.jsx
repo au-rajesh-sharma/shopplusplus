@@ -1,4 +1,5 @@
 import { LinkContainer } from 'react-router-bootstrap';
+//import { Link, useNavigate } from 'react-router-dom';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';//X, edit, trash
 import { useNavigate, useParams } from 'react-router-dom';
@@ -57,10 +58,9 @@ const ProductListScreen = () => {
     }
   }
 
-
+   
   return (
-            <>
-    
+        <>
             <Row className='align-items-center'>
                 <Col><h2>Products</h2></Col>
                 <Col className='text-end'>
@@ -75,9 +75,10 @@ const ProductListScreen = () => {
             {loadingDelete && <Loader />}
             
             {isLoading ? <Loader /> : 
-              error ? <Message variant='danger'>{error.data.message}</Message> : (
+              error ? <Message variant='danger'>{error.data.message}</Message> 
+              : (
                     // use fragment for pagination
-                    <>
+                <>
                     <Table striped hover responsive className='table-sm'>
                         <thead>
                             <tr>
@@ -123,10 +124,12 @@ const ProductListScreen = () => {
                         <Paginate pages={data.pages} 
                             page={data.page}
                             isAdmin={true} />
-                    </>
+                            
+                        
+                </>
             )}
-       </>
-    )
+        </>
+    )  
 }
 
 export default ProductListScreen;
