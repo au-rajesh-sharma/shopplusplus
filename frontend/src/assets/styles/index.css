@@ -113,6 +113,11 @@ table th {
 
 @media (max-width: 1000px) {
   /* centering header  */
+  .header {
+    position: relative;
+    width: 90%;
+    justify-self: center;
+  }
   .product-card {
     display: flex;
     justify-self: center;
