@@ -84,7 +84,7 @@ const Header = () => {
                         </div>
 
                         <LinkContainer to='/cart'>
-                            <Nav.Link id='cart' class="text-bold"> <FaShoppingCart color='indigo'/> Cart
+                            <Nav.Link id='cart' className='navdropdown-text' > <FaShoppingCart color='indigo'/> Cart
                                 {//if cart has items, show a badge with count
                                 cartItems.length > 0  && (
                                 //show badge with count
@@ -107,15 +107,16 @@ const Header = () => {
                             otherwise direct to login */}
                             {userInfo ? (
                                 <>
-                                <FaUser color='indigo'/>
-                                <NavDropdown title={userInfo.name} id='username' >
-                                
-                                    <LinkContainer to='/profile'>
-                                        <NavDropdown.Item >Profile</NavDropdown.Item>
+                                {/* <FaUser color='indigo'/> */}
+                                <NavDropdown className='navdropdown-text' title={userInfo.name} id='username' >
+                                    <LinkContainer to='/profile' >
+                                        <NavDropdown.Item class="text-bold text-decoration-none">Profile</NavDropdown.Item>
                                     </LinkContainer>
-                                    <NavDropdown.Item onClick={logoutHandler}>
+                                    <LinkContainer to='/' >
+                                    <NavDropdown.Item class="text-bold text-decoration-none" onClick={logoutHandler}>
                                         Logout
                                     </NavDropdown.Item>
+                                    </LinkContainer>
                                 </NavDropdown>
                                 </>
 
@@ -131,7 +132,7 @@ const Header = () => {
                             {/* if userInfo exists, and its admin user, show admin drop down */}
                             {userInfo && userInfo.isAdmin && (
                                                                 
-                                <NavDropdown title='Admin options' class="fw-bold" id='adminmenu'>
+                                <NavDropdown className='navdropdown-text' title='Admin Menu' id='adminmenu'>
                                     <LinkContainer to='/admin/productlist'>
                                         <NavDropdown.Item>Products</NavDropdown.Item>
                                     </LinkContainer>

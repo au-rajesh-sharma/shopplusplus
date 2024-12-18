@@ -9,6 +9,13 @@ main {
   z-index: 10;
 }
 
+.navdropdown-text {
+  /* font-weight: 900; */
+  font-size: small;
+  font-weight: bold;
+  -webkit-text-fill-color: darkblue;
+}
+
 /* on user scroll, header sticky class opacity */
 /* .header-sticky {
   position: sticky;
@@ -17,6 +24,7 @@ main {
   opacity: 0.8;
 } */
 /* style to reduce carousel slider */
+
 .carousel {
   width: 70%;
 }
@@ -89,11 +97,6 @@ table th {
   align-items: center;
 }
 
-#username, #adminmenu, #cart {
-  font-weight: bold;
-  font-size: larger;
-}
-
 .text-bold {
   font-weight: bold;
   color: #000;
@@ -115,9 +118,11 @@ table th {
   /* centering header  */
   .header {
     position: relative;
+    /* offset: 5px; */
     width: 90%;
     justify-self: center;
   }
+
   .product-card {
     display: flex;
     justify-self: center;
@@ -132,6 +137,7 @@ table th {
     justify-self: center;
   }
   body {
+    width: 95%;
     font-size: xx-small;
     justify-self: center;
   }
@@ -152,7 +158,14 @@ table th {
   h3 {
     font-size: medium;
   }
-  table tr {
+  /* table tr {
     padding-left: 3px;
+  } */
+  
+  button {
+    height:65px;
+    margin-bottom: 3px;
+    /* width: 70px; */
+    
   }
 }

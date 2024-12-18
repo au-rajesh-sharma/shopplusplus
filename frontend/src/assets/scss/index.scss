@@ -8,6 +8,13 @@ main {
   opacity: 0.9;
   z-index: 10;
 } 
+
+.navdropdown-text {
+  /* font-weight: 900; */
+  font-size: small;
+  font-weight: bold;
+  -webkit-text-fill-color: darkblue;
+}
  
 /* on user scroll, header sticky class opacity */
 /* .header-sticky {
@@ -93,11 +100,6 @@ table th {
   align-items: center;
 }
 
-#username, #adminmenu, #cart {
-  font-weight: bold;
-  font-size: larger;
-}
-
 .text-bold {
   font-weight: bold;
   color: #000;
@@ -142,9 +144,9 @@ table th {
   }
 
   body {
-  font-size:xx-small;
-  // width: 80%;
-  justify-self: center; 
+    width: 95%;
+    font-size: xx-small;
+    justify-self: center;
   }
 
   /* style to reduce carousel slider */
@@ -169,7 +171,13 @@ table th {
     font-size: medium;
   }
 
-  table tr {
-    padding-left: 3px;
+  // table tr {
+  //   padding-left: 3px;
+  // }
+
+  button {
+    height:65px;
+    /* width: 70px; */
+    
   }
 }

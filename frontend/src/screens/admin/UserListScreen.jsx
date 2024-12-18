@@ -72,10 +72,12 @@ const deleteHandler = async (id) => {
                                     {/* if its not admin user, show delete button */}
                                     <td>
                                     {!user.isAdmin && 
-                                        <Button className='btn-sm' variant='danger'
+                                        
+                                        <LinkContainer to=''><Button className='btn-sm' variant='danger'
                                             onClick={() => deleteHandler(user._id)}
                                             ><FaTrash style={{color: 'white'}}/>
                                         </Button>
+                                        </LinkContainer>
                                     }
                                     </td>
                                 </tr>

@@ -66,7 +66,7 @@ const ProductListScreen = () => {
                 <Col className='text-end'>
                     <Button className='btn-md m-4'
                         onClick={createProductHandler}>
-                        <FaEdit />Create Product
+                        <FaEdit />New 
                     </Button>
                 </Col>
             </Row>
@@ -110,10 +110,13 @@ const ProductListScreen = () => {
 
                                     <td>
                                     {/* delete button with handler*/}
+                                    <LinkContainer to=''>
                                     <Button className='btn-sm' variant='danger'
                                         onClick={() => deleteHandler(product._id)}>
-                                            <FaTrash style={{color: 'white'}}/>
+                                            <FaTrash />
                                     </Button>
+                                    </LinkContainer>
+                                    
                                     </td>
                                 </tr>
                             ))}
