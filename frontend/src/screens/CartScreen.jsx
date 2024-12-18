@@ -34,7 +34,8 @@ const CartScreen = () => {
     //back button handler
   const backHandler = () => {
     //if user not logged in, take user to login, otherwise, go to shipping screen
-    navigate(-1)
+    // navigate(-1)
+    navigate('/')
 } 
 
   return (
@@ -115,7 +116,7 @@ const CartScreen = () => {
                     </Button> 
                     <p></p>
                     <Button className='btn btn-dark my-3'  onClick={backHandler}>
-                        Go Back
+                        Continue Shopping
                     </Button>   
                     </ListGroup.Item>    
                 </ListGroup>  

@@ -115,7 +115,7 @@ table th {
   border: 1px solid black;
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 992px) {
   /* centering header  */
   .header  {
       position: relative;
